@@ -91,7 +91,10 @@ form.signup input.form-control:focus {
 /* wrapper */
 
 #wrapper {
-	 background-color: #fcfcfc;
+	 background-image: url("../img/math.jpg");
+    background-repeat: repeat-xy;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 #countdown {
