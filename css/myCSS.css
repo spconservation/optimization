@@ -4,14 +4,14 @@ body {
 }
 
 /* nunito font */
-h1 { font-family: 'Nunito',sans-serif; font-size: 40px; font-weight: 900; letter-spacing: -1px; color: #dddddd; margin-top: 60px; margin-bottom: 40px;}
-h2 { font-family: 'Nunito',sans-serif; color: #dddddd; font-size: 24px;}
-h3 { font-family: 'Nunito',sans-serif; font-weight: 400; color: #dddddd;}
-h4 { font-family: 'Nunito',sans-serif; font-weight: 400;font-size: 20px; color: #dddddd;}
-h5 { font-family: 'Nunito',sans-serif; color: #dddddd;}
-h6 { font-family: 'Nunito',sans-serif; color: #dddddd;}
+h1 { font-family: 'Nunito',sans-serif; font-size: 40px; font-weight: 900; letter-spacing: -1px; color: #444444; margin-top: 60px; margin-bottom: 40px;}
+h2 { font-family: 'Nunito',sans-serif; color: #444444; font-size: 24px;}
+h3 { font-family: 'Nunito',sans-serif; font-weight: 400; color: #444444;}
+h4 { font-family: 'Nunito',sans-serif; font-weight: 400;font-size: 20px; color: #444444;}
+h5 { font-family: 'Nunito',sans-serif; color: #444444;}
+h6 { font-family: 'Nunito',sans-serif; color: #444444;}
 a { font-family: 'Nunito',sans-serif; color: #ACBAC1; word-wrap: break-word; -webkit-transition: color 0.1s ease-in, background 0.1s ease-in; -moz-transition: color 0.1s ease-in, background 0.1s ease-in; -ms-transition: color 0.1s ease-in, background 0.1s ease-in; -o-transition: color 0.1s ease-in, background 0.1s ease-in; transition: color 0.1s ease-in, background 0.1s ease-in;}
-p { font-family: 'Nunito',sans-serif; margin-bottom: 20px; font-size: 16px; color: #dddddd;}
+p { font-family: 'Nunito',sans-serif; margin-bottom: 20px; font-size: 16px; color: #444444;}
 pre { font-family: 'Nunito',sans-serif; }
 blockquote { font-family: 'Nunito',sans-serif; }
 
@@ -91,20 +91,17 @@ form.signup input.form-control:focus {
 /* wrapper */
 
 #wrapper {
-	 background-image: url("../img/math.jpg");
-    background-repeat: repeat-xy;
-    -o-background-size: cover;
-    background-size: cover;
+	 background-color: #fcfcfc;
 }
 
 #countdown {
 	font-size: 42px;
-	color: #dddddd;
+	color: #444444;
 	line-height: 1.1em;
 	margin: 40px 0 60px;
 }
 
 .footer p{
     margin-top: 20px; 
-    color: #dddddd;
+    color: #444444;
 }
