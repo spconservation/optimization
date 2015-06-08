@@ -1,0 +1,108 @@
+body {
+    font-family: 'Nunito',sans-serif;
+    margin: 0px;    
+}
+
+/* nunito font */
+h1 { font-family: 'Nunito',sans-serif; font-size: 40px; font-weight: 900; letter-spacing: -1px; color: #dddddd; margin-top: 60px; margin-bottom: 40px;}
+h2 { font-family: 'Nunito',sans-serif; color: #dddddd; font-size: 24px;}
+h3 { font-family: 'Nunito',sans-serif; font-weight: 400; color: #dddddd;}
+h4 { font-family: 'Nunito',sans-serif; font-weight: 400;font-size: 20px; color: #dddddd;}
+h5 { font-family: 'Nunito',sans-serif; color: #dddddd;}
+h6 { font-family: 'Nunito',sans-serif; color: #dddddd;}
+a { font-family: 'Nunito',sans-serif; color: #ACBAC1; word-wrap: break-word; -webkit-transition: color 0.1s ease-in, background 0.1s ease-in; -moz-transition: color 0.1s ease-in, background 0.1s ease-in; -ms-transition: color 0.1s ease-in, background 0.1s ease-in; -o-transition: color 0.1s ease-in, background 0.1s ease-in; transition: color 0.1s ease-in, background 0.1s ease-in;}
+p { font-family: 'Nunito',sans-serif; margin-bottom: 20px; font-size: 16px; color: #dddddd;}
+pre { font-family: 'Nunito',sans-serif; }
+blockquote { font-family: 'Nunito',sans-serif; }
+
+a:hover,
+a:focus {
+    color: #4F92AF;
+    text-decoration: none;
+    outline: 0;
+}
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+.alignleft {
+    text-align: left;
+}
+.alignright {
+    text-align: right;
+}
+
+.aligncenter {
+    text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.btn-theme  {
+  color: #fff;
+  background-color: #4F92AF;
+  border-color: #4F92AF;
+}
+.btn-theme:hover  {
+  color: #fff;
+  background-color: #444;
+  border-color: #444;
+}
+form.signup input  {
+	height: 42px;
+	width: 200px;
+	border-radius: 0;
+	border: none;
+}
+form.signup button.btn {
+	font-weight: 700;
+}
+form.signup input.form-control:focus {
+	border-color: #fd680e;
+}
+
+
+/* wrapper */
+
+#wrapper {
+	 background-image: url("../img/math.jpg");
+    background-repeat: repeat-xy;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#countdown {
+	font-size: 42px;
+	color: #dddddd;
+	line-height: 1.1em;
+	margin: 40px 0 60px;
+}
+
+.footer p{
+    margin-top: 20px; 
+    color: #dddddd;
+}
