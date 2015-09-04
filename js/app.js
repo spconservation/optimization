@@ -401,7 +401,7 @@ optApp.controller('NNLSController', function($scope,$state,examplesFactory,ccFac
     $scope.blabel   = $state.current.data.blabel;
     $scope.params   = {A: null, b: null};
 
-    $scope.setupLocalSystem = function(){ $scope.mySystem = new blNNLSLocal($scope.params); setTimeout(function(){_blStem($scope.mySystem)}, 100)}
+    $scope.setupLocalSystem = function(){ $scope.mySystem = new blNNLSLocal($scope.params); setTimeout(function(){_blStem($scope.mySystem)}, 2)}
 
     $scope.setupDistSystem = function(){ $scope.mySystem = blNNLSDist($scope.params, $scope.meta.path); }
 
@@ -442,7 +442,7 @@ optApp.factory('ccFactory', function () {
         cc.stop        = function() { $(".localSolverRadio").attr('disabled', false);};
         cc.reset       = function() { cc.prob = 0.5; };
         cc.settings    = function() { cc.local.settings = !cc.local.settings; };
-        cc.quit        = function() { cc.state = {}; cc.local = {}; cc.dist = {}; }; 
+        cc.quit        = function() { cc.state = {}; cc.local = {}; cc.dist = {};}; 
         return cc; 
     }
     return factory; 
