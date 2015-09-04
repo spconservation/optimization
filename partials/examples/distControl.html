@@ -1,0 +1,157 @@
+<div class="row center" style="margin-top:-40px;">
+    <h3>{{meta.problemName}} </h3>
+    <h4>Distributed Solver Command Center</h4>
+</div>
+
+<div class="row">
+
+    <div class="col-sm-12 col-lg-8">
+        <div class="col-xs-12 col-sm-6">
+            <h4 class="center">Worker Info</h4>
+            
+            <div class="col-sm-4 col-xs-4">
+                <center>
+                    <div id="qrCodeID"></div>
+                    <h5>Worker QR</h5>
+                </center>
+            </div>
+            
+            <div class="col-sm-8 col-xs-8">
+                <h5>                     Problem Type:       <span>{{mySystem.meta.Type}} </span>       </h5>
+                <h5>                     ID:                 <span>{{mySystem.meta.Name}} </span>       </h5>
+                <h5>                     Workers Connected:  <span id="numWorkersID"  >   </span>       </h5>
+                <h5><span id="disableID">Worker Status:      <span id="workerStatusID">   </span></span></h5>
+            </div>
+            <h5 class="visible-xs">Worker URL: http://optimization.SPConservation.org/partials/dist/{{mySystem.meta.distType}}.html?{{mySystem.meta.Type}}?{{mySystem.meta.Name}}</h5>
+        </div>
+
+        <div class="center col-sm-6 col-xs-12 nopadding">
+            <h4>Worker Controls</h4>
+            <br />
+            <div class="col-xs-6 nopadding">
+                <a href="/partials/dist/{{mySystem.meta.distType}}.html?{{mySystem.meta.Type}}?{{mySystem.meta.Name}}" target="_blank" class="btn-launch">Launch Worker</a> 
+                <br>
+                <br>
+                <br>
+                <a ng-click="mySystem.ref.state.set('1');" class="btn-launch" >Start Workers</a>
+            </div>
+            <div class="col-xs-6 nopadding">
+                <a ng-click="mySystem.ref.enable.set(1);" class="btn-launch">Disconnect Workers</a>
+                <br>
+                <br>
+                <br>
+                <a ng-click="mySystem.ref.state.set('0');"  class="btn-launch">Stop Workers</a> 
+            </div>
+        </div>
+
+        <div class="col-sm-12 hidden-xs" style="margin-top:-10px">
+            <h5>Worker URL: http://optimization.SPConservation.org/#/dist/{{mySystem.meta.distType}}.html?{{mySystem.meta.Type}}?{{mySystem.meta.Name}}</h5>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-lg-4">
+        <br class="visible-xs">
+        <h4 class="center">Solver Settings</h4>
+
+        <div class="radio">
+              <label> 
+                    <input type="radio" ng-model="mySystem.meta.solverType" ng-value="1" ng-change="mySystem.ref.solverType.set(1);">Iterative solver
+              </label>
+              <br/>
+              <label> 
+                    <input type="radio" ng-model="mySystem.meta.solverType" ng-value="2" ng-change="mySystem.ref.solverType.set(2);">Filtered solver
+              </label> with parameter <input type="number" ng-model="mySystem.meta.filterCoeff" ng-change="mySystem.ref.filterCoeff.set(mySystem.meta.filterCoeff);" min="0.01" max="10" value="0.5" step="0.01"> </input><span style="color:red;" ng-show="mySystem.meta.filterCoeff > 1"><h6>System may not converge for parameters larger than one</h6></span>
+        </div>
+            <h5>Nominal Delay: <span style="display:inline;" id="nominalID"></span> seconds</h5>
+            <input type="range" min="0.0" max="1" step="0.01" value=0.1 style="width:60%" id="nominalDelayID">
+
+            <h5>Additional Random Delay: <span style="display:inline;" id="randomID"></span> seconds</h5>
+            <input type="range" min="0.0"max="1"step="0.01"value=0.1 style="width:60%" id="randomDelayID">        
+    </div>
+     
+
+     <div class="hidden-lg col-xs-12 col-sm-6">
+        <h4 class="center">Visualization Settings</h4>
+        <ul class="overview-li">
+                <li><a href="" ng-click="mySystem.meta.visualType=1;mySystem.meta.vis();">Solution view</a></li>
+                <li><a href="" ng-click="mySystem.meta.visualType=2;mySystem.meta.vis();">Compute  view</a></li>
+                <li><a href="" ng-click="mySystem.meta.visualType=null;mySystem.meta.vis();">Visualization Off</a></li>
+                <h5>Iteration (equivalent count): <span id="numIterDistID1">0.00</span></h5>
+                <h5>Refresh rate (seconds): <span id="visualDelayDisplay1"></span>
+                    <input type="range" min="0.25"max="10"step="0.05" style="width:60%" value="1" id="visDelayID1" >
+                </h5>
+                
+        </ul>
+    </div>
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="visible-lg col-md-4">
+        <h4 class="center">Visualization Settings</h4>
+        <ul class="overview-li">
+                <li><a href="" ng-click="mySystem.meta.visualType=1;mySystem.meta.vis();">Solution view</a></li>
+                <li><a href="" ng-click="mySystem.meta.visualType=2;mySystem.meta.vis();">Compute  view</a></li>
+                <li><a href="" ng-click="mySystem.meta.visualType=null;mySystem.meta.vis();">Visualization Off</a></li>
+                <h5>Iteration (equivalent count): <span id="numIterDistID2">0.00</span></h5>
+                <h5>Refresh rate (seconds): <span id="visualDelayDisplay2"></span>
+                    <input type="range" min="0.25"max="10"step="0.05" style="width:60%" value="1" id="visDelayID2" >
+                </h5>
+
+                
+                
+        </ul>
+    </div>
+
+    <div class="col-lg-8 col-xs-12">
+        <h4 class="center">Visualization</h4>
+            <div class="center smallpadding" ng-show="mySystem.meta.visualType==null"> 
+                  <h5>Select a visualization from Visualization Settings.</h5>
+            </div>
+            <div ng-show="mySystem.meta.visualType===1" class="center nopadding">
+                <ng-include src=meta.distPlotPath></ng-include>
+            </div>
+            <div ng-show="mySystem.meta.visualType===2" class="center smallpadding">
+                <div class="col-xs-5 nopadding">
+                    <h5 class="left">Worker Resource Allocation</h5>
+                    <div class="nopadding" id="resourcesID">
+                        <svg id="resourcesSVG"/>
+                    </div>
+                </div>
+                <div class="col-xs-7 nopadding">
+                    <div class="nopadding" id="computeID">
+                        <svg id="computeSVG"/>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+  
+  <div class="row"> <br />
+      <div class="col-sm-6">
+          <div class="col-xs-6 hidden-xs hidden-sm center"> 
+              <h4>Problem Formulation</h4> <br />
+              <p><span mathjax-bind="meta.problemFormulation"></span></p>
+          </div>
+
+          <div class="col-xs-6 hidden-xs hidden-sm center"> 
+              <h4>Signal-Flow Structure</h4>
+              <img width="80%" ng-src={{meta.structureTag}}>
+          </div>
+        
+          <div class="col-xs-12">
+              <h4>References</h4>
+              <h5>Want to know how this works? Check out our <a ui-sref="opt.learn" target="_blank">Learn More</a> page for the latest publications on conservative optimization. </h5>
+          </div>
+      </div>
+      
+      <div class="col-xs-6 hidden-xs hidden-sm center" id="distParams">
+          <h4>Problem Parameters</h4> 
+          <ng-include src=meta.inputPath ></ng-include>
+      </div>
+  </div>
+  
