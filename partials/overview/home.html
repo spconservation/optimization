@@ -1,0 +1,280 @@
+   
+<div class="container" >
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-3 col-md-2">
+			<h5 style="text-align:center;">Overview Navigation</h5>
+			<ul class="overview-li" style="margin-left:-25px;">				
+				<li><a href="" ng-click="currentPage=1">Optimization</a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=2"><small>Problem Formulation</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=3"><small>Utility Functions</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=4"><small>Constraints</small></a></li>
+				<br />
+				<li><a href="" ng-click="currentPage=5">Signal Processing</a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=6"><small>Signal-Flow Structures</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=7"><small>Conservation</small></a></li>
+				<br />
+				<li ><a href="" ng-click="currentPage=8">Signal Processing + Conservation</a></li>
+				<br />
+				<li><a href="" ng-click="currentPage=9">Site Manual</a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=10"><small>Local Controls</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=11"><small>Local Solvers</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=12"><small>Distributed Controls</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=13"><small>Distributed Solvers</small></a></li>
+				<li class="hidden-xs"><a href="" ng-click="currentPage=14"><small>Distributed Workers</small></a></li>
+			</ul>
+		</div>
+
+
+		<div class="col-xs-12 col-sm-9 col-md-10">
+			
+			<div class="jumbotron" ng-show="currentPage===1">
+			  	
+			  	<h3 class="opt-overview-header">Optimization Theory</h3>
+			  	
+			  	<h5>Optimization theory is the language and toolset used to identify the <i>optimal</i> solution among all candidates for a given problem. Modeling a real-world problem using this language is an artform in and of itself. On SPConservation, we provide tools for solving optimization problems using a browser and the internet as a robust compute platform.</h5>
+			  	
+			  	<h5>One method for solving an optimization problem is to implement a related signal processing system endowed with an appropriate conservation principle. You can learn more about this approach <a ui-sref="opt.learn">here</a>. Specifically, for (most) optimization problems in the <a ui-sref="opt.examples">Examples library</a>, two <a href="" ng-click="currentPage=9">types of solvers</a> are available:</h5>
+
+			  	<ul>
+			  		<li><a href="" ng-click="currentPage=11">Local solvers</a>: signal processing systems organized into a single webpage for implementation. We provide  <a href="" ng-click="currentPage=11">four solvers</a> for local systems.</li>
+
+			  		<li><a href="" ng-click="currentPage=13">Distributed solvers</a>: signal processing systems organized into a database (<a href="https://www.firebase.com/" target="_blank">Firebase</a>) which can be implemented using any number of <a href="" ng-click="currentPage=14">distributed workers.</a> We provide  <a href="" ng-click="currentPage=13">two solvers</a> for distributed systems.</li>
+
+			  	</ul>
+
+			  	<h5> Solving an optimization problem corresponds to running the associated signal processing system until it reaches a fixed-point. We provide both synchronous and asynchronous <a href="" ng-click="currentPage=6">implementation tools</a> to accomplish this.</h5>
+
+			  	<h5>Check out the <a ui-sref="opt.examples">Examples library</a> to see various problems formulated using the language of optimization theory. Select one to solve the described problem by implementing the companion conservative signal processing structure yourself.</h5>
+			</div>
+			
+
+			<div class="jumbotron" ng-show="currentPage===2">
+				<h3 class="opt-overview-header">Problem Formulation</h3>
+				
+				<h5 style="text-align:center"><span mathjax-bind="optFormulation"></span></h5>
+				
+				<h5> A typical description of an optimization problem is indicated above. We interpret the problem as follows:  <span mathjax-bind="x"></span> is a vector of decision variables, <span mathjax-bind="Q"></span> is the <a href="" ng-click="currentPage = 3">utility or objective function</a> which we wish to minimize, and  <span mathjax-bind="X"></span> is the <a href="" ng-click="currentPage = 4">feasible or constraint set</a>.  An optimization algorithm then seeks to identify the <span mathjax-bind="x"></span> from the set <span mathjax-bind="X"></span> which achieves the lowest value <span mathjax-bind="Qx"></span>.</h5>
+
+				<h5>We chose the convention of minimizing a function in our definition. Maxamizing is trivially implemented by minimizing <span mathjax-bind="negQ"></span>.</h5>
+			</div>
+			
+			
+			<div class="jumbotron" ng-show="currentPage===3">
+
+			  	<h3 class="opt-overview-header">Utility Functions</h3>
+			  	
+			  	<h5 style="text-align:center"><span mathjax-bind="Q1"></span></h5>
+				<h5>The utility or objective function maps every decision vector to a score or "preference." In the example above, consistent with many optimization formulations in practice, the utility function is seperable into the sum of many sub-utilities.</h5>
+				
+				<h5>Some commonly occuring utility functions:</h5>
+				<div class="row">
+					<div class="col-xs-4">
+						<h5 style="text-align:center">
+							<span mathjax-bind="Q2"></span>
+						</h5>
+						<h6>The utility function used in norm minimization and many forms of regression.</h6>
+					</div>
+					
+					<div class="col-xs-4">
+						<h5 style="text-align:center">
+							<span mathjax-bind="Q3"></span>
+						</h5>
+					  	<h6>The utility function used in linear programming.</h6>
+					</div>
+					
+					<div class="col-xs-4">
+						<h5 style="text-align:center">
+							<span mathjax-bind="Q4"></span>
+						</h5>
+						<h6>The utility function used in quadratic programming.</h6>
+					</div>
+				</div>
+
+			</div>
+
+
+			<div class="jumbotron" ng-show="currentPage===4">
+			  	<h3 class="opt-overview-header">Constraints and feasible sets</h3>
+
+			  	<h5 style="text-align:center"><span mathjax-bind="Xex"></span></h5>
+
+
+			  	<h5>The feasible set  <span mathjax-bind="X"></span>  describes all candidate solutions <span mathjax-bind="x"></span>  without any notion of preference among them. In the example above and consistent with many optimization formulations in practice, the overall constraint set <span mathjax-bind="X"></span> is described as an intersection of many sub-constraint sets <span mathjax-bind="Xk"></span>. The intersection is interpreted to mean that any feasible decision vector <span mathjax-bind="x"></span> is required to be a member of each of the sub-constraints.
+			  	</h5>
+
+			  	<h5>Some commonly occuring constraints sets:</h5>
+			  	<ul>
+			  		<li>Linear equality constraints: A hyper-plane is described by <span mathjax-bind="X1"></span></li>
+
+			  		<li>Linear inequality constraints: A half-space is described by <span mathjax-bind="X2"></span> </li>
+
+			  		<li>Multiplicative constraints: Two variables multiplied to produce a third is described by <span mathjax-bind="X3"></span></li>
+
+			  		<li>General non-linear constraints: Two variables related through a function is described by <span mathjax-bind="X4"></span></li>
+			  	</ul>
+			</div>
+			
+
+			<div class="jumbotron" ng-show="currentPage===5">
+			  	<h3 class="opt-overview-header">Signal Processing</h3>
+			  	<h5>Signal processing is the study of signals, systems, and their interactions. Signals are typicaly described using discrete or continuous functions while systems are described as the operators which process them. The applications of signal processing theory are endless; common ones include electrical engineering, seismology, audio processing, finance and economics. 
+			  	</h5>
+			  	<h5>
+			  	On SPConservation, we focus on the design and implementation of <a href="" ng-click="currentPage = 7">conservative signal processing systems</a> represented using <a href="" ng-click="currentPage = 6">signal-flow structures</a>.  The use of conservation is in linking the structure to an <a href="" ng-click="currentPage = 2">optimization problem</a> in such a way that running the system to a fixed-point effectively solves the associated problem. We provide tools for two types of systems: <a href="" ng-click="currentPage = 11">local or non-distributed</a> and <a href="" ng-click="currentPage = 13">distributed</a> systems. For distributed systems, we decompose the signal-flow structure as well as the signal to be processed into objects and store them in a database so that a group of neworked <a href="" ng-click="currentPage = 14">workers</a> can implement the system. For non-distributed systems, this process is performed completely within the browser 
+
+			  	</h5>
+
+			  	
+			</div>
+				
+
+			<div class="jumbotron" ng-show="currentPage===6">
+				<h3 class="opt-overview-header">Signal-Flow Structures</h3>
+				<div class="row">
+					 <div class="col-lg-8">
+					 	Signal-flow structures provide a convenient way of organizing the variables associated with a system of equations into a computational form.  The particular signal-flow structure depicted here is mathematically equivalent to all <a href="" ng-click="currentPage = 7">conservative signal processing systems</a> implemented on this website. Signal-flow characterizations are behavioral in general and in this way can be thought of as a graphical declarative programming language. We provide two implementation protocols for running such a system:
+					 </div>
+
+					 <div class="col-lg-4 center">
+					 		<img  width="300px" ng-src="/assets/img/general-system.png">
+					 </div>
+				</div>
+				<div class="row">
+					<br />
+					<ul>
+					  	<li>Synchronous protocols: a traditional implementation of a signal processing system akin to iterating a function representing the system where the system state or memory acts as a vector delay unit. </li>
+
+					  	<li>Asynchronous protocols: the implementation of a signal processing system where the system state or memory acts as randomly triggered sample-and-hold elements.  </li>
+					  </ul>	
+					A detailed treatement of these protocols can be found <a ui-sref="opt.learn">here</a>. 
+				</div>
+			</div>
+			
+
+			<div class="jumbotron" ng-show="currentPage===7">
+			  	<h3 class="opt-overview-header">Conservative Signal-Flow Systems</h3>
+			  	<div class="row">
+					<h5>Conservation principles in signal processing systems involve an organization of the system variables so that they satisfy an indefinite quadratic form which is invariant to the systems dynamics. For example, consider the two conservative signal-flow structures below which play important roles in conservative optimization.</h5>
+				</div>
+			  	<div class="row center">
+					<img  width="70%" ng-src="/assets/img/overview/sig-proc-conserv.png">
+				</div>
+				<div class="row">
+					<h5>In the system on the left, the conservation principle (demonstrated below) relates the <span mathjax-bind="a"></span> and <span mathjax-bind="b"></span> variables through an inner-product. While this form is similar to conservation of energy in electrical networks, the system variables in a signal processing system may lack interpretation as current or voltage like quantities. The terms "CR1" and "CR2" have to do with relations and are explained further  <a href="http://arxiv.org/abs/1407.0418" target="_blank">here</a>. In the signal processing system on the right, the conservation principle (also demonstrated below) relates the <span mathjax-bind="c"></span> and <span mathjax-bind="d"></span> variables through a norm-like expression. The elements <span mathjax-bind="m1"></span> and <span mathjax-bind="m2"></span> represent functions. The relationships in the middle demonstrate one way to change variables in order to obtain the conservative system on the right from the conservative system on the left and the inverse of those relationships can be used to go from the system on the right to the system on the left.</h5> 
+				</div>
+			  	<h5 class="center"><span mathjax-bind="conservation"></span></h5>
+			</div>
+			
+
+			<!-- Signal Processing + Conservation - section 3  -->
+			<div class="jumbotron" ng-show="currentPage===8">
+			  	<h3 class="opt-overview-header">Signal Processing + Conservation</h3>
+			  	<div class="row">
+					<div class="col-lg-8">
+					 	Conservation principles applied to optimization theory are used to define a primal and dual pair of optimization problems whose collective <a href="" ng-click="currentPage = 4">constraints or feasibility conditions</a> serve as sufficient conditions for stationarity. Further, the conditions associated with this class of optimization problems can always be cast into the <a href="" ng-click="currentPage = 7">conservative signal-flow structure</a> depicted on the top right. Using the system transformations mentioned <a href="" ng-click="currentPage = 7">here</a>, the signal-flow structure can be transformed to the structure on the bottom which has many advantages for implementation. You can learn more about these advantages <a href="http://arxiv.org/abs/1407.0418" target="_blank">here</a>. This website specifically automates this process, as well as the implementation of the signal-flow structure on the bottom both in <a href="" ng-click="currentPage = 14">distributed</a> and <a href="" ng-click="currentPage = 12">non-distributed</a> ways.
+					</div>
+
+					<div class="col-lg-4 center">
+					 	<img  width="70%" ng-src="/assets/img/overview/sig-proc-conserv-2.png">
+					</div>
+				</div>
+			</div>
+			
+
+			<!-- Site Manual - Section 4 -->
+			<div class="jumbotron" ng-show="currentPage===9">
+			  	<h3 class="opt-overview-header">SPConservation Optimization Manual</h3>
+			  	<h5> Each problem in the <a ui-sref="opt.examples">Examples Library</a> has a corresponding Problem Setup page which describes and formulates the example. An example Problem Setup page for the LASSO problem is depicted below.</h5>
+
+			  	<h5 class="center"><img width="80%" ng-src="/assets/img/overview/problem-setup.png"></h5>
+
+			  	<h5>Each example has a button which generates a (typically random) instantiation of the problem or you can provide your own parameters using standard JavaScript formatting. From this page, you can launch the controller for either a <a href="" ng-click="currentPage=10">local/non-distributed</a> or <a href="" ng-click="currentPage=12">distributed</a> implementation of the associated conservative signal processing system.</h5>
+
+			  	<h5>A short description of the implementation details, adapted for clarity rather than computational efficiency, are provided to help in understanding how to select some of the metaparameters for a given problem. We separate this presentation into the procedures for <a href="" ng-click="currentPage=11">four local solvers</a> and <a href="" ng-click="currentPage=13">two distributed solvers</a>.</h5>
+			</div>
+
+
+
+			<div class="jumbotron" ng-show="currentPage===10">
+			  	<h3 class="opt-overview-header">Local Controls</h3>
+			  	<h5 class="center"><img width="80%" ng-src="/assets/img/overview/local-controls-bar.png"></h5>
+			  	<h5 >The controls available for a local solver are organized into the local command center depicted above and operate as follows: 
+			  		<ul>
+			  			<li>Initialize: Performs the precompute associated with transforming the problem parameters from the setup page into the associated conservative signal-flow structure. </li>
+			  			<li>Start: The signal processing system starts continuously processing. </li>
+			  			<li>Step: The system state updates once in accordance with the randomness parameter.</li>
+			  			<li>Stop: The signal-flow structure stops continuous processing.</li>
+			  			<li>Reset: The system state is reset to initialization according to the selected solver as described <a href="" ng-click="currentPage = 11">here</a>. </li>
+			  			<li>Randomness: A slider taking values from zero (left) to one (right) corresponding to the probability each delay element updates for each iteration.</li>
+			  		</ul>
+			  	In addition, you can select one of the <a href="" ng-click="currentPage = 11">four local solvers</a> from the settings menu.
+			  	</h5>
+			  	
+			  	<h5>An example local solver is depicted below for the LASSO problem.</h5>
+			  	<h5 class="center"><img width="400px" ng-src="/assets/img/overview/local-controls.png"></h5>
+
+			</div>
+
+
+			<div class="jumbotron" ng-show="currentPage===11">
+			  	<h3 class="opt-overview-header">Local Solvers</h3>
+			  	<div class="row">
+			  		<div class="col-xs-5">
+			  			<h5> A local (non-distributed) solver is the organization of the conservative signal-flow structure defined  <a href="" ng-click="currentPage=6">here</a> for implementation within a single webpage.</h5>
+
+			  			<h5 >The processing instructions for four local solvers are described to the right.</h5> 
+
+			  			<h5>These solvers each embody an organization of the computation associated with realizing the conservative  signal-flow structure or one derived from it. Each has different consequences related to convergence and are discussed further <a ui-sref="opt.learn">here</a>.
+			  			</h5>
+			  		</div>
+			  		<div class="col-xs-7 center">
+			  			<img  width="500px" ng-src="/assets/img/overview/local-solvers.png">
+			  		</div>
+			  	</div>
+			</div>
+
+
+			<div class="jumbotron" ng-show="currentPage===12">
+			  	<h3 class="opt-overview-header">Distributed Controls</h3>
+			  	<h5 >The controls available for a distributed solver are organized into a Distributed Solver Command Center as depicted below for an example. The controls are organized as follows: 
+			  		<ul>
+			  			<li>Worker Info: Metadata associated with registering networked worker resources </li>
+			  			<li>Worker Controls: Actions used to control the distributed worker resources. </li>
+			  			<li>Solver Settings: Metadata to control the solvers implemented by worker resources. </li>
+			  			<li>Visualization: The currently selected visualization plot updated according to the refresh rate.</li>
+			  			<li>Visualization Settings:  Possible visualizations related to the solution and worker resources. Note that turning off or slowing the refresh rate decreases the overall bandwidth from the database allowing the workers to process faster.</li>
+			  		</ul>
+			  	<h5 class="center"><img width="80%" ng-src="/assets/img/overview/distributed-controls.png"></h5>
+
+			</div>
+
+
+			<div class="jumbotron" ng-show="currentPage===13">
+			  	<h3 class="opt-overview-header">Distributed Solvers</h3>
+			  	<div class="row">
+			  		<h5 >A qualitative description of the organization of the conservative signal-flow system defined <a href="" ng-click="currentPage=6">here</a> as well as the signals it processes into a generic database is depicted below. On SPConservation, we specifically use <a href="https://www.firebase.com/" target="_blank">Firebase</a> for this storage. The procedures for worker initialization and processing associated with two distributed system realizations (solvers) are also provided. Each solver has different consequences related to convergence and are discussed further <a ui-sref="opt.learn">here</a>.</h5>
+			  	</div>
+			  	<div class="row center">
+			  		<img  width="90%" ng-src="/assets/img/overview/distributed-solvers.png">
+			  	</div>
+			</div>
+
+
+			<div class="jumbotron" ng-show="currentPage===14">
+			  	<h3 class="opt-overview-header">Distributed Workers</h3>
+			  	<h5 > Distributed workers are used to implement the signal processing system for a <a href="" ng-click="currentPage=13">distributed solver</a> and are registered by going to the URL provided on the <a href="" ng-click="currentPage=12">Distributed Solver Command Center</a>. An example of the API seen from a distributed worker is provided below. Note that the controller has the ability to start and stop the workers from processing. The only way a worker can stop itself from processing is by closing its connection from the database (for example, by closing the page). </h5>
+
+			  	<h5 class="center"><img width="70%" ng-src="/assets/img/overview/distributed-worker.png"></h5>
+			</div>
+			
+		    
+		    <pager previous-text="&laquo; Previous" next-text="Next &raquo;" total-items="maxPages" ng-model="currentPage" items-per-page="1"></pager>
+		</div>
+   </div>
+	
+</div> 
+
+
+
+

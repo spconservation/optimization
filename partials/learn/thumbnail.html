@@ -1,0 +1,25 @@
+<div class="col-xs-12">
+	<div class="thumbnail">
+		<div class="caption">
+			<h4><a target="_blank" href="{{paper.link}}">{{paper.title}}</a></h4>
+			<h5>{{paper.authors}}</h5>
+			<p>{{paper.description}}</p>
+			<p ng-init="x=true" ng-click="x = !x">Cite this paper: <a href="" >[Bibtex]</a></p>
+			<div collapse="x">
+				<div class="well">
+					<p>	
+						<small>
+							@{{paper.bibtexDocType}}{ {{paper.bibtexName}},      <br />
+							author={ {{paper.bibtexAuthor}} }, 	  				 <br \>
+							{{paper.bibtexDocType2}} ={ {{paper.bibtexConf}} },  <br \>
+							title={ {{paper.title}} },     				 <br \>
+							year={ {{paper.bibtexYear}} },	  <br \>
+							month={ {{paper.bibtexMonth}}},     <br \>
+							pages={ {{paper.bibtexPages}} }}
+						</small>
+					</p>
+				</div> 
+			</div>
+		</div>
+	</div>
+</div>

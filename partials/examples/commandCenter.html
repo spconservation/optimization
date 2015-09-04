@@ -1,0 +1,53 @@
+  <div class="container hidden-sm hidden-md hidden-lg center" style="padding-top:5px;">
+
+    <ul class="cc-list">
+      <li><span class="glyphicon glyphicon-circle-arrow-down cc-icon pull-left" aria-hidden="true" ng-click="setupLocalSystem(); cc.initLocal();"></span></li>
+    
+      <li><span class="glyphicon glyphicon-play  cc-icon" aria-hidden="true" ng-click="bl.Start(mySystem);cc.start();" ng-show="cc.local.active"></span></li>
+
+      <li><span class="glyphicon glyphicon-step-forward  cc-icon" aria-hidden="true" ng-click="bl.Step(mySystem);" ng-show="cc.local.active"></span></li>
+
+      <li><span class="glyphicon glyphicon-stop  cc-icon" aria-hidden="true" ng-click="bl.Stop(mySystem);cc.stop();" ng-show="cc.local.active"></span></li>
+
+      <li><span class="glyphicon glyphicon-refresh  cc-icon" aria-hidden="true" ng-click="bl.Reset(mySystem);cc.reset();" ng-show="cc.local.active"></span></li>
+
+      <li><input type="range" id="ccProb" min="0.01"  max="0.99" step="0.01" ng-model="cc.prob" style="width: 60;display:inline;" ng-show="cc.local.active"></li>
+      
+      <li><p style="display:inline;padding-right:2px;"></p></li>
+
+      <li><span class="glyphicon glyphicon-cog cc-icon" aria-hidden="true" ng-click="cc.settings();" ng-show="cc.local.active"></span></li>
+
+      <li><span class="glyphicon glyphicon-off cc-icon pull-right" aria-hidden="true" ng-click="cc.quit(); bl.Quit(mySystem); "></span></li>
+    </ul>
+   
+  </div>
+
+  <div class="container hidden-xs">  
+    
+     <p class="hidden-sm" style="display:inline;padding-right:10px;">Command Center</p>
+
+      <button type="button" class="btn-cc" ng-click="setupLocalSystem();cc.initLocal();">Initialize </button>
+
+      <p style="display:inline;padding-right:15px;"></p>
+
+      <button type="button" class="btn-cc" ng-click="bl.Start(mySystem);cc.start();" ng-show="cc.local.active">Start</button>
+
+      <button type="button" class="btn-cc" ng-click="bl.Step(mySystem);" ng-show="cc.local.active">Step</button>
+
+      <button type="button" class="btn-cc" ng-click="bl.Stop(mySystem);cc.stop();" ng-show="cc.local.active"> Stop </button>
+
+      <p style="display:inline;padding-right:15px;"></p>
+
+      <button type="button" class="btn-cc" ng-click="bl.Reset(mySystem);cc.reset()" ng-show="cc.local.active">Reset</button>
+
+      <p style="display:inline;padding-right:15px;"></p>
+      
+      <p style="display:inline;padding-right:10px;" ng-show="cc.local.active"> Randomness </p>
+   
+      <input type="range" id="ccProb" min="0.01" max="0.99" step="0.01" ng-model="cc.prob" style="width: 120;display:inline;" ng-show="cc.local.active">
+
+      <button type="button" class="btn-cc" ng-click="cc.settings()" ng-show="cc.local.active">Settings</button>
+   
+      <button type="button" class="btn-cc" ng-click="cc.quit(); bl.Quit(mySystem);">Quit</button>
+
+  </div>

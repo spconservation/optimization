@@ -1,0 +1,81 @@
+<div class="container" ng-show="!cc.state.launchDist">
+
+	<div class="row center" style="margin-top:-40px;margin-bottom:10px;">
+		<h3>{{meta.problemName}}</h3>
+		<h4>{{meta.subtitle}}</h4>
+	</div>
+	
+	<div class="row">
+	 	<div class="col-md-8 col-sm-7">
+	 		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Description</h3>
+				</div>
+				<div class="panel-body">
+					<ng-include src=meta.descriptionPath></ng-include>
+				</div>
+			</div>
+			<p class="hidden-xs center"><br/>
+				<a ng-click="cc.setup()" ng-hide="cc.state.setup" class="btn-launch" >Setup Problem</a>				
+			</p> <br /> 
+	 	</div>
+
+	 	<div class="col-md-4 col-sm-5">		
+	 		<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Problem Formulation</h3>
+				</div>
+				<div class="panel-body center">
+					<p><span mathjax-bind="meta.problemFormulation"></span></p>
+				</div>
+			</div>
+			<p class="hidden-sm hidden-md hidden-lg center"><br/>
+				<a ng-click="cc.setup()" ng-hide="cc.state.setup" class="btn-launch" >Setup Problem</a>
+			</p>
+			<div class="panel panel-default hidden-xs" ng-hide="cc.state.setup">
+				<div class="panel-heading">
+					<h3 class="panel-title">Conservative Signal Processing Structure</h3>
+				</div>
+				<div class="panel-body">
+					<img width="100%" ng-src={{meta.structureTag}}>
+				</div>
+			</div>
+	 	</div>
+	</div>
+
+	<div class="row" ng-show="cc.state.setup">
+ 		<div class="col-xs-12 col-sm-12 col-md-8 center">
+	 		<ng-include src=meta.inputPath></ng-include><br /> 
+	 		<p>
+				<a ng-click="example()" class="btn-launch" >Example Problem</a><br /><br /><br />
+				<a ng-click="cc.launchLocal()" ng-hide="cc.state.launchLocal" class="btn-launch" >Launch Locally</a>
+				<a ng-click="cc.launchDist(); setupDistSystem();"  ng-hide="cc.state.launchLocal" class="btn-launch">Launch Distributed</a>
+			</p>
+ 		</div>
+ 		<div class="col-sm-4 hidden-xs hidden-sm">
+ 			<div class="panel panel-default">
+	 			<div class="panel-heading">
+					<h3 class="panel-title">Conservative Signal Processing Structure</h3>
+				</div>
+				<div class="panel-body">
+					<img width="100%" ng-src={{meta.structureTag}}>
+				</div>
+			</div>
+ 		</div>
+   	</div><br />
+   
+</div>
+
+<div ng-show="cc.local.active">
+	<div ng-include="'/partials/examples/localSystem.html'"></div>
+</div>
+
+<!-- local command center -->
+<div ng-show="cc.state.launchLocal" class="cc">
+	<div ng-include="'/partials/examples/commandCenter.html'"></div>
+</div>
+
+<!-- distributed command center -->
+<div class="container" ng-show="cc.state.launchDist">
+	<div ng-include="'/partials/examples/distControl.html'"></div>
+</div>

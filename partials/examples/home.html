@@ -1,0 +1,71 @@
+   
+<div class="container" >
+	<div class="row center" style="margin-top:-40px;margin-bottom:10px;">
+		<h3>Examples Library</h3>
+		<h5>New examples will be added regularly so check back often!</h5>
+	</div>
+	
+
+ 	<accordion close-others="false">
+ 		<accordion-group is-open="true">
+        	<accordion-heading>
+            	<h4 style="text-align:center" class="hidden-xs">General Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': generalStatus, 'glyphicon-chevron-right': !generalStatus}"></i></h4>
+            	<h4 style="text-align:center" class="hidden-sm hidden-md hidden-lg">General Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': generalStatus, 'glyphicon-chevron-right': !generalStatus}"></i></h4>
+        	</accordion-heading>
+			<div class="row">
+				<div ng-repeat="problem in generalProblems">
+					<div ng-include src="'partials/examples/thumbnail.html'"></div>
+				</div>
+			</div>
+		</accordion-group>
+
+		<!-- <accordion-group is-open="false">
+        	<accordion-heading>
+            	<h3 style="text-align:center" class="hidden-xs">Linear Program Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': generalStatus, 'glyphicon-chevron-right': !generalStatus}"></i></h3>
+            	<h4 style="text-align:center" class="hidden-sm hidden-md hidden-lg">Linear Program Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': generalStatus, 'glyphicon-chevron-right': !generalStatus}"></i></h4>
+        	</accordion-heading>
+			<div class="row">
+				<div ng-repeat="problem in LP1">
+					<div ng-include src="'partials/examples/thumbnail.html'"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div ng-repeat="problem in LP2">
+					<div ng-include src="'partials/examples/thumbnail.html'"></div>
+				</div>
+			</div>
+		</accordion-group> -->
+
+		<!-- <accordion-group is-open="false">
+        	<accordion-heading>
+            	<h3 style="text-align:center" class="hidden-xs">Machine Learning Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': generalStatus, 'glyphicon-chevron-right': !generalStatus}"></i></h3>
+            	<h4 style="text-align:center" class="hidden-sm hidden-md hidden-lg">Machine Learning Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': generalStatus, 'glyphicon-chevron-right': !generalStatus}"></i></h4>
+        	</accordion-heading>
+			<div class="row">
+				<div ng-repeat="problem in machineLearning">
+					<div ng-include src="'partials/examples/thumbnail.html'"></div>
+				</div>
+			</div>
+		</accordion-group> -->
+
+		<!-- <accordion-group is-open="false">
+        	<accordion-heading>
+            	<h3 style="text-align:center" class="hidden-xs">Norm Minimization Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': lpStatus, 'glyphicon-chevron-right': !lpStatus}"></i></h3>
+            	<h4 style="text-align:center" class="hidden-sm hidden-md hidden-lg">Norm Minimization Examples<i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': lpStatus, 'glyphicon-chevron-right': !lpStatus}"></i></h4>
+        	</accordion-heading>
+			<div class="row">
+				<div ng-repeat="problem in norm">
+					<div ng-include src="'partials/examples/thumbnail.html'"></div>
+				</div>
+			</div>
+			
+		</accordion-group> -->
+	</accordion>
+
+
+	
+</div> <!-- end container -->
+
+
+
+

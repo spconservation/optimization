@@ -1,0 +1,39 @@
+<div class="row" ng-show="cc.local.active"> 
+    <div class="container">
+      <div class="col-sm-8 center">
+        <h4> Visualization </h4>
+        <ng-include src=meta.plotPath></ng-include>
+      </div>
+      <div ng-show="cc.local.settings" class="col-sm-4 center">
+        <h4> Local Solver Settings </h4>
+        <div class="row left" style="font-size:11px;">
+          <div class="col-xs-2"></div>
+          <div class="col-xs-10">
+            <div class="radio">
+                  <label> 
+                    <input type="radio" ng-model="mySystem.meta.solverType" ng-value="1" class="localSolverRadio">Iterative Solver
+                  </label>
+                  <br/>
+                  <label> 
+                    <input type="radio" ng-model="mySystem.meta.solverType" ng-value="2" class="localSolverRadio">Incremental Solver
+                  </label>
+                  <br/>
+                  <label> 
+                    <input type="radio" ng-model="mySystem.meta.solverType" ng-value="3" class="localSolverRadio">Iterative Filtered Solver
+                  </label>
+                  <br/>
+                  <label> 
+                    <input type="radio" ng-model="mySystem.meta.solverType" ng-value="4" class="localSolverRadio">Incremental Filtered Solver
+                  </label>
+              </div>
+              <label>
+              <input type="number" ng-model="mySystem.meta.filterCoeff" min="0.01"  value="0.5" step="0.01"> Filter Coefficient
+              </label>
+            <!-- <pre>{{mySystem.meta.solverType || 'null'}}</pre> -->
+            <!-- <pre>{{mySystem.meta.filterCoeff || 'null'}}</pre> -->
+            <span style="color:red;" ng-show="mySystem.meta.filterCoeff > 1"><h6>System may not converge for filter coefficients larger than one</h6></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

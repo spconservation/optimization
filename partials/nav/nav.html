@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default opt-nav">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+      <a class="navbar-brand opt-nav-brand" ui-sref="opt.home">Optimization</a>
+  </div>
+
+  <div class="collapse navbar-collapse" collapse="navCollapsed">
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="opt.overview" ng-click="navCollapsed = !navCollapsed">Overview</a></li>
+        <li><a ui-sref="opt.examples" ng-click="navCollapsed = !navCollapsed">Examples</a></li>
+        <li><a ui-sref="opt.learn" ng-click="navCollapsed = !navCollapsed">Learn More</a></li>
+        <li><a ui-sref="opt.contribute" ng-click="navCollapsed = !navCollapsed">Contribute</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/" ng-click="navCollapsed = !navCollapsed">SPConservation</a></li>
+      </ul>
+  </div><!-- /.navbar-collapse -->
+</div>
+</nav>
+
